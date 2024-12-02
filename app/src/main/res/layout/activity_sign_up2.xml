@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity2"
+    android:background="@drawable/signup_wallpaper_ing">
+
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fi_rr_arrow_small_left" />
+
+    <ImageView
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="116dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/prgressbar2png" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="159dp"
+        android:layout_height="134dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/eatpick_icon"
+        tools:layout_editor_absoluteY="108dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/welcomText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_black"
+        android:text="아이디를 정해주세요"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="311dp" />
+
+    <EditText
+        android:id="@+id/EditId"
+        android:layout_width="298dp"
+        android:layout_height="49dp"
+        android:background="@drawable/round_input"
+        android:ems="10"
+        android:fontFamily="@font/inter_medium"
+        android:inputType="text"
+        android:text="아이디"
+        android:textColor="#5E5F60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="457dp" />
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="301dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#FFDA76"
+        android:fontFamily="@font/inter_semibold"
+        android:text="다음"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="517dp" />
+
+    <TextView
+        android:id="@+id/idDuplicate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:text="중복확인"
+        android:textColor="#B4D6CD"
+        android:textSize="16dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="285dp"
+        tools:layout_editor_absoluteY="467dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
