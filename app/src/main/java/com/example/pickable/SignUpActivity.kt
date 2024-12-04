@@ -22,7 +22,7 @@ class SignUpActivity : AppCompatActivity() {
             insets
         }
 
-        val EditNickName : EditText = findViewById(R.id.EditNickName)
+        val EditNickName : EditText = findViewById(R.id.editNickName)
         val nextBtn : Button = findViewById(R.id.nextBtn)
         val idDuplicate : TextView = findViewById(R.id.idDuplicate)
 
