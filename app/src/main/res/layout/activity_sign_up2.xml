@@ -55,7 +55,7 @@
         tools:layout_editor_absoluteY="311dp" />
 
     <EditText
-        android:id="@+id/EditId"
+        android:id="@+id/editId"
         android:layout_width="298dp"
         android:layout_height="49dp"
         android:background="@drawable/round_input"

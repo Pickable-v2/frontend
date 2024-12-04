@@ -41,7 +41,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/PassWordText"
+        android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_black"
@@ -100,7 +100,7 @@
         tools:layout_editor_absoluteY="440dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/moreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_bold"

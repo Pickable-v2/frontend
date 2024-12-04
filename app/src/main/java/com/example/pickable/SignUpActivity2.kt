@@ -22,7 +22,7 @@ class SignUpActivity2 : AppCompatActivity() {
             insets
         }
         val nickname = intent.getStringExtra("nickname")
-        val EditId : EditText = findViewById(R.id.EditId)
+        val editId : EditText = findViewById(R.id.editId)
         val nextBtn : Button = findViewById(R.id.nextBtn)
         val idDuplicate : TextView = findViewById(R.id.idDuplicate)
 
@@ -33,7 +33,7 @@ class SignUpActivity2 : AppCompatActivity() {
 
         //다음
         nextBtn.setOnClickListener {
-            val id = EditId.text.toString()
+            val id = editId.text.toString()
 
             val intent = Intent(this, SignUpActivity3::class.java).apply {
                 intent.putExtra("id", id)
