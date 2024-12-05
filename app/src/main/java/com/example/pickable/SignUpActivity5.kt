@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +27,9 @@ class SignUpActivity5 : AppCompatActivity() {
             insets
         }
 
-        //pre age data
+        val nickname = intent.getStringExtra("nickname")
+        val id = intent.getStringExtra("id")
+        val pw = intent.getStringExtra("pw")
         val age = intent.getIntExtra("AGE", -1)
 
         //버튼 초기화
@@ -52,9 +55,16 @@ class SignUpActivity5 : AppCompatActivity() {
         //다음
         nextBtn.setOnClickListener {
             if(selectedGender != null) {
-                val intent = Intent(this, SignUpActivity6::class.java).apply {
-                }
+                val gender = selectedGender.toString();
+                val intent = Intent(this, SignUpActivity6::class.java)
+                intent.putExtra("nickname", nickname)
+                intent.putExtra("id", id)
+                intent.putExtra("pw", pw)
+                intent.putExtra("age", age)
+                intent.putExtra("gender", gender)
+
                 startActivity(intent)
+                Log.d("DataTest", "Button for $id, $nickname, $pw, $age,$gender  added.")
             }
         }
 

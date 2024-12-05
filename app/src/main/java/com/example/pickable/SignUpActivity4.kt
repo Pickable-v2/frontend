@@ -2,6 +2,9 @@ package com.example.pickable
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.widget.Button
 import android.widget.NumberPicker
 import androidx.activity.enableEdgeToEdge
@@ -22,6 +25,11 @@ class SignUpActivity4 : AppCompatActivity() {
             insets
         }
 
+        val nickname = intent.getStringExtra("nickname")
+        val id = intent.getStringExtra("id")
+        val pw = intent.getStringExtra("pw")
+        val nextBtn : Button = findViewById(R.id.nextBtn)
+
         //NumberPicker
         val numberPicker: NumberPicker = findViewById(R.id.npker)
         numberPicker.minValue = 1
@@ -29,14 +37,19 @@ class SignUpActivity4 : AppCompatActivity() {
         numberPicker.wrapSelectorWheel = false // 100초과시 반복 X
 
         //다음 버튼
-        val nextbtn : Button = findViewById(R.id.nextBtn)
-        nextbtn.setOnClickListener {
+        nextBtn.setOnClickListener {
             val selectedAge = numberPicker.value //선택된 나이
 
-            val intent = Intent(this, SignUpActivity5::class.java).apply {
-                putExtra("AGE", selectedAge) // 선택 나이 전달
+            Handler(Looper.getMainLooper()).post {
+                val intent = Intent(this, SignUpActivity5::class.java)
+                intent.putExtra("nickname", nickname)
+                intent.putExtra("id", id)
+                intent.putExtra("pw", pw)
+                intent.putExtra("age", selectedAge)
+
+                startActivity(intent)
+                Log.d("DataTest", "Button for $id, $nickname, $pw, $selectedAge  added.")
             }
-            startActivity(intent)
         }
     }
 }

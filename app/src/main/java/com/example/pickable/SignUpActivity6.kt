@@ -12,11 +12,18 @@ import com.google.android.flexbox.FlexboxLayout
 
 class SignUpActivity6 : AppCompatActivity() {
     private val maxSelections = 5 // 해시태그 최대 개수
-    private val selectedPreferences = mutableListOf<String>() // 선택된 해시태그
+    private val selectedPreferences = ArrayList<String>() // 선택된 해시태그
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up6)
+
+        val nickname = intent.getStringExtra("nickname")
+        val id = intent.getStringExtra("id")
+        val pw = intent.getStringExtra("pw")
+        val age = intent.getIntExtra("AGE", -1)
+        val gender = intent.getStringExtra("gender")
+
 
         val buttonContainer = findViewById<FlexboxLayout>(R.id.buttonContainer)
         val nextBtn: Button = findViewById(R.id.nextBtn)
@@ -87,7 +94,15 @@ class SignUpActivity6 : AppCompatActivity() {
         nextBtn.setOnClickListener {
             if (nextBtn.isEnabled && selectedPreferences.size == maxSelections) {
                 val intent = Intent(this, SignUpActivity7::class.java)
+                intent.putExtra("nickname", nickname)
+                intent.putExtra("id", id)
+                intent.putExtra("pw", pw)
+                intent.putExtra("age", age)
+                intent.putExtra("gender", gender)
+                intent.putExtra("keywords", selectedPreferences)
+
                 startActivity(intent)
+                Log.d("DataTest", "Button for $id, $nickname, $pw, $age,$gender $selectedPreferences  added.")
             } else {
                 Toast.makeText(this@SignUpActivity6, "5개를 모두 선택해주세요", Toast.LENGTH_SHORT).show()
                 Log.d("ButtonTest", "Toast shown for insufficient selection.")
