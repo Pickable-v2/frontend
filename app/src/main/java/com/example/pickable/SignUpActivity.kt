@@ -2,6 +2,7 @@ package com.example.pickable
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -22,7 +23,7 @@ class SignUpActivity : AppCompatActivity() {
             insets
         }
 
-        val EditNickName : EditText = findViewById(R.id.EditNickName)
+        val EditNickName : EditText = findViewById(R.id.editNickName)
         val nextBtn : Button = findViewById(R.id.nextBtn)
         val idDuplicate : TextView = findViewById(R.id.idDuplicate)
 
@@ -34,10 +35,8 @@ class SignUpActivity : AppCompatActivity() {
         //다음
         nextBtn.setOnClickListener {
             val nickname = EditNickName.text.toString()
-
-            val intent = Intent(this, SignUpActivity2::class.java).apply {
-                intent.putExtra("nickname", nickname)
-            }
+            val intent = Intent(this, SignUpActivity2::class.java)
+            intent.putExtra("nickname", nickname)
             startActivity(intent)
         }
     }

@@ -2,6 +2,7 @@ package com.example.pickable
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -22,6 +23,8 @@ class SignUpActivity3 : AppCompatActivity() {
             insets
         }
 
+        val nickname = intent.getStringExtra("nickname")
+        val id = intent.getStringExtra("id")
         val editPassWord : EditText = findViewById(R.id.editPassWord)
         val editPassWord2 : EditText = findViewById(R.id.editPassWord2)
         val nextBtn : Button = findViewById(R.id.nextBtn)
@@ -35,12 +38,16 @@ class SignUpActivity3 : AppCompatActivity() {
         //다음
         nextBtn.setOnClickListener {
             //editPassWord와 editPassWord2가 일치하면
-            val pw = editPassWord2.text.toString()
-
-            val intent = Intent(this, SignUpActivity4::class.java).apply {
-                intent.putExtra("id", pw)
+            val beforePw = editPassWord.text.toString()
+            val afterPw = editPassWord2.text.toString()
+            if(beforePw == afterPw){
+                val intent = Intent(this, SignUpActivity4::class.java)
+                intent.putExtra("nickname", nickname)
+                intent.putExtra("id", id)
+                intent.putExtra("pw", afterPw)
+                startActivity(intent)
+                Log.d("DataTest", "Button for $id, $nickname, $afterPw added.")
             }
-            startActivity(intent)
         }
     }
 }
