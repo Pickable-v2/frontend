@@ -76,7 +76,7 @@ class SignUpActivity2 : AppCompatActivity() {
             }
             else{
                 if(CheckId == true){
-                    val intent = Intent(this, SignUpActivity2::class.java)
+                    val intent = Intent(this, SignUpActivity3::class.java)
                     intent.putExtra("nickname", nickname)
                     intent.putExtra("id", id)
                     startActivity(intent)
