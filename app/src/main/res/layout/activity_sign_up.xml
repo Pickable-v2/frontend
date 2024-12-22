@@ -117,7 +117,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/idDuplicate"
+        android:id="@+id/nickDuplicate"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:text="중복확인"
