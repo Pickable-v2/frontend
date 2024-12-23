@@ -22,7 +22,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="409dp"
+            android:layout_width="0dp"
             android:layout_height="56dp"
             android:background="#B4D6CD"
             android:orientation="horizontal"
@@ -70,8 +70,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="409dp"
-            android:layout_height="467dp"
+            android:layout_width="0dp"
+            android:layout_height="550dp"
             android:background="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -148,9 +148,10 @@
             android:layout_height="175dp"
             app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.299"
+            app:layout_constraintVertical_bias="0.149"
             app:srcCompat="@drawable/_01" />
 
         <ImageView
@@ -159,10 +160,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.696"
+            app:layout_constraintHorizontal_bias="0.697"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.255"
+            app:layout_constraintVertical_bias="0.117"
             app:srcCompat="@drawable/eidt" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
