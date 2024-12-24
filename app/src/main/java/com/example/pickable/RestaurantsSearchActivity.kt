@@ -12,13 +12,18 @@ import androidx.appcompat.widget.SearchView
 
 data class Restaurant(val name: String, val address: String, val rating: Float, val category: String)
 
-class RestaurantsSearchActivity : AppCompatActivity() {
+class RestaurantsSearchActivity : BaseActivity() {
+
+    override fun getLayoutId(): Int {
+        return R.layout.activity_restaurants_serach // RestaurantsSearchActivity에 해당하는 레이아웃 리소스를 반환
+    }
+
     private lateinit var restaurantAdapter: RestaurantListAdapter
     private lateinit var restaurantList: List<Restaurant>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_restaurants_serach)
+
 
         // View 참조
         val spinner: Spinner = findViewById(R.id.spinner)
