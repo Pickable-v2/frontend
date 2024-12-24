@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- 상단 날짜 및 요일 섹션 -->
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="432dp"
@@ -70,5 +71,32 @@
 
     </LinearLayout>
 
+    <!-- BottomAppBar -->
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabAlignmentMode="center"
+        app:fabCradleMargin="8dp"
+        app:fabCradleRoundedCornerRadius="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Bottom Navigation Menu -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_nav_menu"/>
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <!-- FloatingActionButton -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chat"
+        app:layout_anchor="@id/bottomAppBar"
+        app:layout_anchorGravity="center"
+        app:backgroundTint="@color/colorAccent"
+        app:tint="@android:color/white"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

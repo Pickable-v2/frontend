@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bottom_nav_default_color">#808080</color>
+    <color name="bottom_nav_selected_color">#FFDA76</color>
+    <color name="colorAccent">#FFDA76</color>
+    <color name="bottom_nav_ripple_color">#FFDA76</color>
+
 </resources>

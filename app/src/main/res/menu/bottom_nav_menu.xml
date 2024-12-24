@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="홈"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_search"
+        android:title="맛집검색"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/nav_blank"
+        android:title=""
+        android:enabled="false"/>
+    <item
+        android:id="@+id/nav_review"
+        android:icon="@drawable/ic_review"
+        android:title="맛집리뷰"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/nav_rank"
+        android:icon="@drawable/ic_rank"
+        android:title="랭킹"
+        app:showAsAction="always"/>
+</menu>
