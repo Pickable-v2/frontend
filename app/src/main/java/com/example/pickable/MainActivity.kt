@@ -11,11 +11,14 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main // MainActivity의 레이아웃 리소스
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         // 날짜와 요일 설정
         val dateText: TextView = findViewById(R.id.dateText)
@@ -31,42 +34,6 @@ class MainActivity : AppCompatActivity() {
         mypageBtn.setOnClickListener {
             val intent = Intent(this, MyPageActivity::class.java)
             startActivity(intent)
-        }
-
-        // BottomNavigationView와 FloatingActionButton 설정
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
-        val floatingButton: FloatingActionButton = findViewById(R.id.floatingButton)
-
-        // Bottom Navigation 버튼 선택 시 이벤트 처리
-        bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> {
-                    // TODO: 홈 화면으로 전환
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.nav_search -> {
-                    // TODO: 검색 화면으로 전환
-                    val intent = Intent(this, RestaurantsSearchActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.nav_review -> {
-                    // TODO: 리뷰 화면으로 전환
-                    true
-                }
-                R.id.nav_rank -> {
-                    // TODO: 랭킹 화면으로 전환
-                    true
-                }
-                else -> false
-            }
-        }
-
-        // FloatingActionButton 클릭 이벤트
-        floatingButton.setOnClickListener {
-            // TODO: 채팅 페이지로 이동
         }
     }
 
