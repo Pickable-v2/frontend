@@ -1,6 +1,7 @@
 package com.example.pickable
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import android.widget.BaseAdapter
 class RestaurantListAdapter(
     private val context: Context,
     private var data: List<Restaurant>
+
 ) : BaseAdapter() {
 
     override fun getCount(): Int = data.size
@@ -40,7 +42,13 @@ class RestaurantListAdapter(
 
         // 리뷰쓰기 버튼 동작 설정
         reviewButton.setOnClickListener {
-            // 버튼 클릭 시 동작 정의 (필요에 따라 추가 구현)
+            val intent = Intent(context, ReviewCreateActivity::class.java).apply {
+                // 리뷰 작성 페이지 데이터 전달
+                putExtra("restaurant_name", restaurant.name)
+                putExtra("restaurant_address", restaurant.address)
+                putExtra("restaurant_rating", restaurant.rating.toString()) // String으로 변환
+            }
+            context.startActivity(intent)
         }
 
         return view
