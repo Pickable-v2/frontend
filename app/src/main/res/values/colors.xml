@@ -7,4 +7,7 @@
     <color name="colorAccent">#FFDA76</color>
     <color name="bottom_nav_ripple_color">#FFDA76</color>
 
+    <color name="star_filled">#FFDA76</color> <!-- 채워진 별: 황금색 -->
+    <color name="star_empty">#BDBDBD</color> <!-- 빈 별: 회색 -->
+
 </resources>

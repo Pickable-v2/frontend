@@ -33,7 +33,7 @@ abstract class BaseActivity : AppCompatActivity() {
                     Log.d("BottomNav", "Home selected")
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
-//                    overridePendingTransition(0, 0) // 애니메이션 제거
+                    overridePendingTransition(0, 0) // 애니메이션 제거
                     true
                 }
                 R.id.nav_search -> {
@@ -41,11 +41,14 @@ abstract class BaseActivity : AppCompatActivity() {
                     Log.d("BottomNav", "Search selected")
                     val intent = Intent(this, RestaurantsSearchActivity::class.java)
                     startActivity(intent)
-//                    overridePendingTransition(0, 0) // 애니메이션 제거
+                    overridePendingTransition(0, 0) // 애니메이션 제거
                     true
                 }
                 R.id.nav_review -> {
-                    // TODO: 리뷰 화면으로 전환
+                    // TODO: 리뷰 목록 화면으로 전환
+                    Log.d("BottomNav", "Review selected")
+
+                    overridePendingTransition(0, 0) // 애니메이션 제거
                     true
                 }
                 R.id.nav_rank -> {
