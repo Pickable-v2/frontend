@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,9 +28,10 @@ class SignUpActivity7 : AppCompatActivity() {
         val pw = intent.getStringExtra("pw")
         val age = intent.getIntExtra("AGE", -1)
         val gender = intent.getStringExtra("gender")
-        val keywords = intent.getStringExtra("keywords")
+        val keywords = intent.getStringArrayListExtra("keywords")
 
         val startBtn : Button = findViewById(R.id.startBtn)
+        val backBtn : ImageView = findViewById(R.id.backBtn)
 
         val endingText2 : TextView = findViewById(R.id.endingText2)
         if(nickname != null){
@@ -46,6 +48,11 @@ class SignUpActivity7 : AppCompatActivity() {
             intent.putExtra("keywords", keywords)
             startActivity(intent)
             Log.d("DataTest", "Button for $id, $nickname, $pw, $age,$gender $keywords added.")
+        }
+
+        //이전
+        backBtn.setOnClickListener {
+            onBackPressed()
         }
 
     }

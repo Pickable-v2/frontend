@@ -3,14 +3,17 @@
     <style name="Base.Theme.Pickable" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your light theme here -->
         <item name="colorPrimary">#FFDA76</item>
+        <item name="colorPrimaryVariant">#FFC107</item>
+        <item name="colorAccent">#03DAC5</item>
+        <item name="android:colorBackground">#FFFFFF</item>
+        <item name="colorOnPrimary">#000000</item> <!-- Primary 대비 텍스트 색 -->
     </style>
 
     <!-- Overlay theme for NumberPicker -->
-    <style name="ThemeOverlay.NumberPicker" parent="Theme.MaterialComponents.DayNight">
+    <style name="NumberPickerStyle" parent="Theme.MaterialComponents.Light">
         <!-- NumberPicker divider color -->
         <item name="colorControlNormal">#B4D6CD</item>
         <item name="android:textColorPrimary">#B4D6CD</item>
-        <item name="android:textSize">48sp</item>
     </style>
 
     <style name="Theme.Pickable" parent="Base.Theme.Pickable" />

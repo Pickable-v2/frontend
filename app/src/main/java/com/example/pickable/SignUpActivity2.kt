@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -29,11 +30,12 @@ class SignUpActivity2 : AppCompatActivity() {
             insets
         }
         val nickname = intent.getStringExtra("nickname")
-        Log.d("IntentTest", "Button for $nickname  intent.")
+        Log.d("IntentTest-nickname", "Button for $nickname  intent.")
 
         val editId : EditText = findViewById(R.id.editId)
         val nextBtn : Button = findViewById(R.id.nextBtn)
         val idDuplicate : TextView = findViewById(R.id.idDuplicate)
+        val backBtn : ImageView = findViewById(R.id.backBtn)
 
         // DB 객체 초기화
         DB = DBHelper(this)
@@ -42,7 +44,7 @@ class SignUpActivity2 : AppCompatActivity() {
         // 아이디 중복확인
         idDuplicate.setOnClickListener {
             val user = editId.text.toString()
-            val idPattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{6,15}$"
+            val idPattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{4,15}$"
 
             if (user == "") {
                 Toast.makeText(
@@ -70,7 +72,7 @@ class SignUpActivity2 : AppCompatActivity() {
 
         //다음
         nextBtn.setOnClickListener {
-            val id = editId.text.toString()
+            val id = editId.text.toString().trim()
             if(id == ""){
                 Toast.makeText(this@SignUpActivity2, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
@@ -80,7 +82,8 @@ class SignUpActivity2 : AppCompatActivity() {
                     intent.putExtra("nickname", nickname)
                     intent.putExtra("id", id)
                     startActivity(intent)
-                    Log.d("DataTest", "Button for $id , $nickname  added.")
+                    Log.d("DataTest-id", "Button for $id , $nickname  added.")
+                    Log.i("DataTest", "닉네임 값: "+nickname+", ID: "+id)
                 } else{
                     Toast.makeText(
                         this@SignUpActivity2,
@@ -89,6 +92,11 @@ class SignUpActivity2 : AppCompatActivity() {
                     ).show()
                 }
             }
+        }
+
+        //이전
+        backBtn.setOnClickListener {
+            onBackPressed()
         }
     }
 }

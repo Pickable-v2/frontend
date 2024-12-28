@@ -66,17 +66,15 @@
         tools:ignore="MissingConstraints" />
 
     <!-- 남자 버튼 -->
-
-    <!-- 여자 버튼 -->
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/maleBtn"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/btn_selected_male"
+        android:fontFamily="@font/inter_semibold"
         android:text="남자"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.278"
@@ -84,14 +82,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.672" />
 
-    <Button
+    <!-- 여자 버튼 -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/femaleBtn"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/btn_selected_female"
+        android:fontFamily="@font/inter_semibold"
         android:text="여자"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.745"
