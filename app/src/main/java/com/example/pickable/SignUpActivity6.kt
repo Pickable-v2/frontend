@@ -6,6 +6,7 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.flexbox.FlexboxLayout
@@ -21,12 +22,13 @@ class SignUpActivity6 : AppCompatActivity() {
         val nickname = intent.getStringExtra("nickname")
         val id = intent.getStringExtra("id")
         val pw = intent.getStringExtra("pw")
-        val age = intent.getIntExtra("AGE", -1)
+        val age = intent.getIntExtra("age", -1)
         val gender = intent.getStringExtra("gender")
-
+        Log.d("IntentTest-gender", "Button for $nickname $id $pw $age $gender intent.")
 
         val buttonContainer = findViewById<FlexboxLayout>(R.id.buttonContainer)
         val nextBtn: Button = findViewById(R.id.nextBtn)
+        val backBtn : ImageView = findViewById(R.id.backBtn)
 
         nextBtn.isEnabled = true
 
@@ -90,7 +92,7 @@ class SignUpActivity6 : AppCompatActivity() {
             Log.d("ButtonTest", "Button for $preference added.")
         }
 
-        // Next 버튼 클릭 이벤트
+        // 다음
         nextBtn.setOnClickListener {
             if (nextBtn.isEnabled && selectedPreferences.size == maxSelections) {
                 val intent = Intent(this, SignUpActivity7::class.java)
@@ -107,6 +109,11 @@ class SignUpActivity6 : AppCompatActivity() {
                 Toast.makeText(this@SignUpActivity6, "5개를 모두 선택해주세요", Toast.LENGTH_SHORT).show()
                 Log.d("ButtonTest", "Toast shown for insufficient selection.")
             }
+        }
+
+        //이전
+        backBtn.setOnClickListener {
+            onBackPressed()
         }
     }
 }

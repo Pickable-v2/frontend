@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -31,10 +32,12 @@ class SignUpActivity3 : AppCompatActivity() {
 
         val nickname = intent.getStringExtra("nickname")
         val id = intent.getStringExtra("id")
+        Log.d("IntentTest-id", "Button for $nickname $id  intent.")
         val editPassWord : EditText = findViewById(R.id.editPassWord)
         val editPassWord2 : EditText = findViewById(R.id.editPassWord2)
         val nextBtn : Button = findViewById(R.id.nextBtn)
         val checkPW : TextView = findViewById(R.id.checkPW)
+        val backBtn : ImageView = findViewById(R.id.backBtn)
 
         // DB 객체 초기화
         DB = DBHelper(this)
@@ -47,8 +50,8 @@ class SignUpActivity3 : AppCompatActivity() {
         //다음
         nextBtn.setOnClickListener {
             //editPassWord와 editPassWord2가 일치하면
-            val beforePw = editPassWord.text.toString()
-            val afterPw = editPassWord2.text.toString()
+            val beforePw = editPassWord.text.toString().trim()
+            val afterPw = editPassWord2.text.toString().trim()
             if(beforePw == "" || afterPw == ""){
                 Toast.makeText(this@SignUpActivity3, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
             } else{
@@ -58,12 +61,18 @@ class SignUpActivity3 : AppCompatActivity() {
                     intent.putExtra("id", id)
                     intent.putExtra("pw", afterPw)
                     startActivity(intent)
-                    Log.d("DataTest", "Button for $id, $nickname, $afterPw added.")
+                    Log.d("DataTest-pw", "Button for $id, $nickname, $afterPw added.")
+                    Log.i("DataTest", "닉네임 값: "+nickname+", ID: "+id+", PW: "+afterPw)
                 } else {
                     Toast.makeText(this@SignUpActivity3, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 }
             }
 
+        }
+
+        //이전
+        backBtn.setOnClickListener {
+            onBackPressed()
         }
     }
 }

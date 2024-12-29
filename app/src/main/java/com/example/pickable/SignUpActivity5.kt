@@ -6,8 +6,10 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -27,10 +29,13 @@ class SignUpActivity5 : AppCompatActivity() {
             insets
         }
 
+        val backBtn : ImageView = findViewById(R.id.backBtn)
+
         val nickname = intent.getStringExtra("nickname")
         val id = intent.getStringExtra("id")
         val pw = intent.getStringExtra("pw")
-        val age = intent.getIntExtra("AGE", -1)
+        val age = intent.getIntExtra("age",-1)
+        Log.d("IntentTest-age", "Button for $nickname $id $pw $age intent.")
 
         //버튼 초기화
         maleBtn = findViewById(R.id.maleBtn)
@@ -64,8 +69,14 @@ class SignUpActivity5 : AppCompatActivity() {
                 intent.putExtra("gender", gender)
 
                 startActivity(intent)
-                Log.d("DataTest", "Button for $id, $nickname, $pw, $age,$gender  added.")
+                Log.d("DataTest-gender", "Button for $id, $nickname, $pw, $age,$gender added.")
+                Log.i("DataTest", "닉네임 값: "+nickname+", ID: "+id+", PW: "+pw+", age: "+age+", 성별: "+gender)
             }
+        }
+
+        //이전
+        backBtn.setOnClickListener {
+            onBackPressed()
         }
 
     }

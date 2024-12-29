@@ -55,7 +55,7 @@
     <TextView
         android:id="@+id/endingText2"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:fontFamily="@font/inter_black"
         android:text="000님 환영합니다."
         android:textColor="#000000"

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -32,14 +33,15 @@ class SignUpActivity : AppCompatActivity() {
         val EditNickName : EditText = findViewById(R.id.editNickName)
         val nextBtn : Button = findViewById(R.id.nextBtn)
         val nickDuplicate : TextView = findViewById(R.id.nickDuplicate)
+        val backBtn : ImageView = findViewById(R.id.backBtn)
 
         // DB 객체 초기화
         DB = DBHelper(this)
 
         // 닉네임 중복확인
         nickDuplicate.setOnClickListener {
-            val nick = EditNickName.text.toString()
-            val nickPattern = "^[ㄱ-ㅣ가-힣]*$"
+            val nick = EditNickName.text.toString().trim()
+            val nickPattern = "^[a-zA-Z0-9가-힣ㄱ-ㅣ]*$"
 
             if (nick == "") {
                 Toast.makeText(
@@ -76,6 +78,7 @@ class SignUpActivity : AppCompatActivity() {
                     val intent = Intent(this, SignUpActivity2::class.java)
                     intent.putExtra("nickname", nickname)
                     startActivity(intent)
+                    Log.i("DataTest-nickname", "닉네임 값: "+nickname)
                 } else{
                     Toast.makeText(
                         this@SignUpActivity,
@@ -85,6 +88,13 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
+        }
+
+        //이전
+        backBtn.setOnClickListener {
+//            val intent = Intent(this, LoadingActivity::class.java)
+//            startActivity(intent)
+            onBackPressed()
         }
     }
 }
