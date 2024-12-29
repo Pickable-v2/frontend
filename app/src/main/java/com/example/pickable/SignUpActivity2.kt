@@ -43,7 +43,7 @@ class SignUpActivity2 : AppCompatActivity() {
         //아이디 중복확인
         // 아이디 중복확인
         idDuplicate.setOnClickListener {
-            val user = editId.text.toString()
+            val user = editId.text.toString().trim()
             val idPattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{4,15}$"
 
             if (user == "") {

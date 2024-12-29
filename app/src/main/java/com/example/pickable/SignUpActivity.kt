@@ -69,7 +69,7 @@ class SignUpActivity : AppCompatActivity() {
 
         //다음
         nextBtn.setOnClickListener {
-            val nickname = EditNickName.text.toString()
+            val nickname = EditNickName.text.toString().trim()
             if(nickname == ""){
                 Toast.makeText(this@SignUpActivity, "닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
