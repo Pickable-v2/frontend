@@ -26,9 +26,10 @@ class SignUpActivity7 : AppCompatActivity() {
         val nickname = intent.getStringExtra("nickname")
         val id = intent.getStringExtra("id")
         val pw = intent.getStringExtra("pw")
-        val age = intent.getIntExtra("AGE", -1)
+        val age = intent.getIntExtra("age", -1)
         val gender = intent.getStringExtra("gender")
-        val keywords = intent.getStringArrayListExtra("keywords")
+        val preferences = intent.getStringArrayListExtra("preferences")
+        Log.d("IntentTest-preferences", "Button for $nickname $id $pw $age $gender $preferences intent.")
 
         val startBtn : Button = findViewById(R.id.startBtn)
         val backBtn : ImageView = findViewById(R.id.backBtn)
@@ -45,9 +46,9 @@ class SignUpActivity7 : AppCompatActivity() {
             intent.putExtra("pw", pw)
             intent.putExtra("age", age)
             intent.putExtra("gender", gender)
-            intent.putExtra("keywords", keywords)
+            intent.putExtra("preferences", preferences)
             startActivity(intent)
-            Log.d("DataTest", "Button for $id, $nickname, $pw, $age,$gender $keywords added.")
+            Log.d("DataTest-all-check", "Button for $id, $nickname, $pw, $age,$gender $preferences added.")
         }
 
         //이전

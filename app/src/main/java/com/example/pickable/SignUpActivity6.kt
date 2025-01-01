@@ -39,6 +39,22 @@ class SignUpActivity6 : AppCompatActivity() {
             "한식러버", "바다향기"
         )
 
+        // 키워드와 매핑된 값 정의
+        val keywordMappings = mapOf(
+            "달콤한" to "SWEET",
+            "초딩입맛" to "CHILD_TASTE",
+            "맵찔이" to "NOT_SPICY",
+            "매콤한" to "SPICY",
+            "기름진" to "OILY",
+            "달달한" to "VERY_SWEET",
+            "얼큰한" to "HOT",
+            "엄마손맛" to "HOME_MADE",
+            "크리미한" to "CREAMY",
+            "산뜻한" to "REFRESHING",
+            "한식러버" to "KOREAN_FOOD_LOVER",
+            "바다향기" to "SEA_FLAVOR"
+        )
+
         // 해시태그 버튼 생성
         for ((index, preference) in preferences.withIndex()) {
             val button = Button(this).apply {
@@ -62,8 +78,9 @@ class SignUpActivity6 : AppCompatActivity() {
                 }
 
                 setOnClickListener {
-                    if (selectedPreferences.contains(preference)) {
-                        selectedPreferences.remove(preference) // 선택 해제
+                    val mappedValue = keywordMappings[preference] ?: preference // 매핑된 값
+                    if (selectedPreferences.contains(mappedValue)) {
+                        selectedPreferences.remove(mappedValue) // 선택 해제
                         setTextColor(Color.BLACK)
                         background = GradientDrawable().apply {
                             setColor(Color.WHITE) // 기본 배경색
@@ -71,7 +88,7 @@ class SignUpActivity6 : AppCompatActivity() {
                         }
                     } else {
                         if (selectedPreferences.size < maxSelections) {
-                            selectedPreferences.add(preference) // 선택
+                            selectedPreferences.add(mappedValue) // 매핑된 값 저장
                             setTextColor(Color.WHITE)
                             background = GradientDrawable().apply {
                                 setColor(Color.parseColor("#FF8C9E")) // 선택된 배경색
@@ -101,7 +118,7 @@ class SignUpActivity6 : AppCompatActivity() {
                 intent.putExtra("pw", pw)
                 intent.putExtra("age", age)
                 intent.putExtra("gender", gender)
-                intent.putExtra("keywords", selectedPreferences)
+                intent.putExtra("preferences", ArrayList(selectedPreferences))
 
                 startActivity(intent)
                 Log.d("DataTest", "Button for $id, $nickname, $pw, $age,$gender $selectedPreferences  added.")
